@@ -67,8 +67,8 @@ def sistemaTridiagLU(A, d):
     return x
 
 
-# Cria matriz tridiagonal circular a partir dos vetores que definem suas diagonais
-def criaMatrizTridiagCircular(a, b, c):
+# Cria matriz tridiagonal ciclica a partir dos vetores que definem suas diagonais
+def criaMatrizTridiagCiclico(a, b, c):
     # Dimensão n da matriz
     n = len(b)
 
@@ -95,7 +95,7 @@ def sistemaTridiagCiclico(a, b, c, d):
     n = len(b)
 
     # Constroi matriz A a partir de a,b e c
-    A = criaMatrizTridiagCircular(a, b, c)
+    A = criaMatrizTridiagCiclico(a, b, c)
 
     # Constroi submatriz principal T
     T = np.delete(A, n - 1, 1)
@@ -114,9 +114,13 @@ def sistemaTridiagCiclico(a, b, c, d):
 
     # Solução do sistema
     x = [0] * n
-    for i in range(n):
-        x[i] = (d[i] - c[i] * y[0] - a[i] * y[i - 1]) / (
-            b[i] - c[i] * z[0] - a[i] * z[i - 1]
-        )
+
+    # Calcula xn
+    x[n - 1] = (d[(n - 1)] - c[(n - 1)] * y[0] - a[(n - 1)] * y[(n - 1) - 1]) / (
+        b[(n - 1)] - c[(n - 1)] * z[0] - a[(n - 1)] * z[(n - 1) - 1]
+    )
+    # Calcula os valores de x restantes
+    for i in range(n - 1):
+        x[i] = y[i] - x[n - 1] * z[i]
 
     return x, A

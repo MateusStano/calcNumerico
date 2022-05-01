@@ -1,6 +1,6 @@
 import numpy as np
 
-from funcs import (
+from functions import (
     LU,
     sistemaTridiagLU,
     sistemaTridiagCiclico,
@@ -57,7 +57,8 @@ def main():
 
         x = sistemaTridiagLU(A, y)
 
-        print("Solução: ", x)
+        print("Solução x: ")
+        print(x)
 
     elif modo == 3:
         n = int(input("Dimensão da matriz tridiagonal: "))
@@ -79,22 +80,65 @@ def main():
             b[i] = 2
             d[i] = np.cos((2 * np.pi * (i + 1) ** 2) / (n**2))
 
-        x = sistemaTridiagCiclico(a, b, c, d)
+        x, A = sistemaTridiagCiclico(a, b, c, d)
 
-        print("Solução: ", x)
+        print("\nVetor a: ")
+        print(a)
+        print("\nVetor b: ")
+        print(b)
+        print("\nVetor c: ")
+        print(c)
+        print("\nVetor d: ")
+        print(d)
+        print("\nSolução x: ")
+        for i in x:
+            print(i)
 
     elif modo == 4:
-        print("Insira os vetores que definem a matriz")
-        a = input("vetor a: ")
-        b = input("vetor b: ")
-        c = input("vetor c: ")
+        n = int(input("Dimensão da matriz: "))
 
-        print("Insira o vetor d para o sistema A*x=d")
-        d = input("vetor d: ")
+        print("Insira itens do vetor a")
+        a = [0] * n
+        for i in range(n):
+            ai = float(input("a" + str(i) + ": "))
+            a[i] = ai
 
-        x = sistemaTridiagCiclico(a, b, c, d)
+        print("\nVetor a: ")
+        print(a)
 
-        print("Solução: ", x)
+        print("\nInsira itens do vetor b")
+        b = [0] * n
+        for i in range(n):
+            bi = float(input("b" + str(i) + ": "))
+            b[i] = bi
+
+        print("\nVetor b: ")
+        print(b)
+
+        print("\nInsira itens do vetor c")
+        c = [0] * n
+        for i in range(n):
+            ci = float(input("c" + str(i) + ": "))
+            c[i] = ci
+
+        print("\nVetor c: ")
+        print(c)
+
+        print("\nInsira itens do vetor d")
+        d = [0] * n
+        for i in range(n):
+            di = float(input("d" + str(i) + ": "))
+            d[i] = di
+
+        print("\nVetor d: ")
+        print(d)
+
+        x, A = sistemaTridiagCiclico(a, b, c, d)
+
+        print("\nSolução x: ")
+        for i in x:
+            print(i)
+
     else:
         raise Exception("Modo não existente")
 
