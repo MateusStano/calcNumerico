@@ -16,18 +16,44 @@ def main():
     modo = int(input("Modo: "))
 
     if modo == 1:
-        A = input("Matriz nxn a ser decomposta: ")
+        n = int(input("Dimensão da Matriz: "))
+        A = np.zeros((n, n), dtype=np.float64)
+        for i in range(n):
+            for j in range(n):
+                a_ij = float(input("item a" + str(i) + str(j) + ": "))
+                A[i][j] = a_ij
+
+        print("Matriz de entrada: ")
+        print(A)
 
         U, L = LU(A)
 
-        print("Matriz A: ", A)
-        print("Matriz L: ", L)
-        print("Matriz U: ", U)
+        print("Matriz A: ")
+        print(A)
+        print("Matriz L: ")
+        print(L)
+        print("Matriz U: ")
+        print(U)
 
     elif modo == 2:
-        print("Sistema A*x = y")
-        A = input("Matriz tridiagonal: ")
-        y = input("Vetor y: ")
+        n = int(input("Dimensão da Matriz do sistema: "))
+        A = np.zeros((n, n), dtype=np.float64)
+        for i in range(n):
+            for j in range(n):
+                a_ij = float(input("Item a" + str(i) + str(j) + ": "))
+                A[i][j] = a_ij
+
+        print("Matriz de entrada: ")
+        print(A)
+
+        print("Insira itens do vetor y")
+        y = [0] * n
+        for i in range(n):
+            yi = float(input("y" + str(i) + ": "))
+            y[i] = yi
+
+        print("Vetor y: ")
+        print(y)
 
         x = sistemaTridiagLU(A, y)
 

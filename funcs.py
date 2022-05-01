@@ -12,7 +12,7 @@ def LU(A):
     # Calcula U e L
     for i in range(n):
         U[i, i:] = A[i, i:] - L[i, :i] @ U[:i, i:]
-        L[(i + 1) :, i] = (1 / U[i, i]) * (A[(i + 1) :, i] - L[(i + 1) :, :] @ U[:, i])
+        L[(i + 1) :, i] = (A[(i + 1) :, i] - L[(i + 1) :, :] @ U[:, i]) / U[i, i]
 
     return U, L
 
