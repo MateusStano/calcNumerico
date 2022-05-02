@@ -1,3 +1,13 @@
+"""
+EP1 - Decomposição LU para Matrizes Tridiagonais
+
+Nome: Laura do Prado Gonçalves Pinto
+NUSP: 11819960
+
+Nome: Mateus Stano Junqueira
+NUSP: 11804845
+"""
+
 import numpy as np
 
 from functions import (
