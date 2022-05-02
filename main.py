@@ -28,8 +28,6 @@ def main():
 
         U, L = LU(A)
 
-        print("Matriz A: ")
-        print(A)
         print("Matriz L: ")
         print(L)
         print("Matriz U: ")
