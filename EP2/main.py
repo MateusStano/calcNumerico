@@ -43,7 +43,7 @@ n10 = [
     (-0.9739065285171717200779640, 0.0666713443086881375935688),
 ]
 
-
+# Calculo da integral dupla
 def integral_dupla(f, a, b, pontos_e_pesos_x, c, d, pontos_e_pesos_y):
     """
     f: função de x e y a ser integrada
@@ -312,8 +312,8 @@ def main():
 
         print("Obs: x e y devem ser trocados para ordem correta de integração\n")
 
-        # Superficie ------------------------------------------------------------------
-        print("Cálculo da superfície descrita:\n")
+        # Volume ------------------------------------------------------------------
+        print("Cálculo do volume da superfície descrita:\n")
         print("Função a ser integrada: f(x,y) = e^(y/x)\n")
         print("Intervalos de integração: \n a = 0.1, b = 0.5, c = x^3, d = x^2\n")
         print("Resultados: ")
@@ -355,10 +355,8 @@ def main():
             "\n",
         )
 
-        print("Resultado exato: 1.6\n")
-
-        # Volume ------------------------------------------------------------------
-        print("Cálculo do volume da superfície descrita:\n")
+        # Superficie ------------------------------------------------------------------
+        print("Cálculo da superfície descrita:\n")
         print(
             "Função a ser integrada: f(x,y) = ( (e^(x/y)/y)^2 + (-x*e^(x/y)/y^2)^2 + 1 )^(1/2)\n"
         )
