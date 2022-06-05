@@ -1,0 +1,20 @@
+# Exercício Programa 2 - Formulas de Integracao Numerica de Gauss
+
+## Versões
+Programado com python 3.10
+
+Requisitos 
+Python 3 e NumPy
+
+## Instruções de execucação
+Executar arquivo main.py e escolher um dos 5 modos
+
+Modo 0 - Calculo de integral dupla para uma função e intervalos quaisquer
+
+Modo 1 - Resolve o Exemplo 1
+
+Modo 2 - Resolve o Exemplo 2
+
+Modo 3 - Resolve o Exemplo 3
+
+Modo 4 - Resolve o Exemplo 4
