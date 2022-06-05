@@ -124,3 +124,11 @@ def sistemaTridiagCiclico(a, b, c, d):
         x[i] = y[i] - x[n - 1] * z[i]
 
     return x, A
+
+
+def mudanca_intervalo(f, a, b, u):
+    # a --> intervalo inferior
+    # b --> intervalo superior
+    # u --> nova variável
+
+    return f((b + a) / 2 + (b - a) * u / 2) * (b - a) / 2
