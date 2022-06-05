@@ -1,5 +1,5 @@
 """
-EP2 - NOMENOMENOMENOME
+EP2 - Formulas de Integracao Numerica de Gauss
 
 Nome: Laura do Prado Gonçalves Pinto
 NUSP: 11819960
