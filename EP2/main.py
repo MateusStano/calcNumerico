@@ -310,8 +310,6 @@ def main():
         print("0.1 <= x <= 0.5,")
         print("x^3 <= y <= x^2\n")
 
-        print("Obs: x e y devem ser trocados para ordem correta de integração\n")
-
         # Volume ------------------------------------------------------------------
         print("Cálculo do volume da superfície descrita:\n")
         print("Função a ser integrada: f(x,y) = e^(y/x)\n")
