@@ -301,6 +301,50 @@ def main():
             "\n",
         )
 
+        print(
+            "\n\nA area da regiao no primeiro quadrante limitada pelos eixos e pela curva x = (1-y)^(1/2):\n"
+        )
+        print("Função a ser integrada: f(x,y) = 1\n")
+        print("Intervalos de integração: \n a = 0, b = (1-y)^(1/2), c = 0, d = 1\n")
+        print("Resultados: ")
+        print(
+            "n = 6 -->  I = ",
+            integral_dupla(
+                f=lambda x, y: 1,
+                a= 0,
+                b= 1,
+                pontos_e_pesos_x=n6,
+                c= lambda x : 0,
+                d= lambda x: np.sqrt(1-x) , #necessário alteração da orientação 
+                pontos_e_pesos_y=n6,
+            ),
+        )
+        print(
+            "n = 8 -->  I = ",
+            integral_dupla(
+                f=lambda x, y: 1,
+                a=0,
+                b=1,
+                pontos_e_pesos_x=n8,
+                c=lambda x: 0,
+                d=lambda x: np.sqrt(1-x),
+                pontos_e_pesos_y=n8,
+            ),
+        )
+        print(
+            "n = 10 --> I = ",
+            integral_dupla(
+                f=lambda x, y: 1,
+                a=0,
+                b=1,
+                pontos_e_pesos_x=n10,
+                c=lambda x: 0,
+                d=lambda x: np.sqrt(1-x),
+                pontos_e_pesos_y=n10,
+            ),
+            "\n",
+        )
+
         print("Resultado exato: 2/3\n")
 
     elif modo == 3:
