@@ -10,6 +10,7 @@ NUSP: 11804845
 
 from functions import *
 import numpy as np
+import matplotlib.pyplot as plt
 
 # pontos e pesos pré estabelecidos
 # na forma de n = [(x_j,w_j),...]
@@ -122,7 +123,7 @@ def main():
                 n, u_exato, alphas
             )
             print(
-                "u_barra = {u_barra_erro_max:.22f} ; u_exato = {u_exato_erro_max:.22f}; erro = {erro_max:.22f}"
+                f"u_barra = {u_barra_erro_max:.22f} ; u_exato = {u_exato_erro_max:.22f}; erro = {erro_max:.22f}"
             )
 
         input("\nTodos os erros calculados. Pressione Enter para continuar...")
@@ -152,8 +153,9 @@ def main():
         print(
             "\n  Q+ e Q- constantes e Q+ > Q- (portanto Q(x) constante e maior que zero)"
         )
+        print(" Parametros: Q+ - Q- = 2")
 
-        n = 31
+        n = 15
         f = lambda x, y: 2  # função f(x)
         k = lambda x, y: 3.6  # função k(x)
         q = lambda x, y: 0  # função q(x)
@@ -162,10 +164,16 @@ def main():
         L = 1
         h = L / (n + 1)
         xi = [i * h for i in range(n + 2)]
+        u_barra_lista = []
         for x in xi:
+            u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
+        plt.plot(xi, u_barra_lista)
+        plt.show()
+
         input("\n\n  Q+ e Q- constantes e Q+ >>> Q-. Pressione Enter para continuar...")
+        print(" Parametros: Q+ - Q- = 20")
 
         n = 15
         f = lambda x, y: 20  # função f(x)
@@ -176,12 +184,18 @@ def main():
         L = 1
         h = L / (n + 1)
         xi = [i * h for i in range(n + 2)]
+        u_barra_lista = []
         for x in xi:
+            u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+
+        plt.plot(xi, u_barra_lista)
+        plt.show()
 
         input(
             "\n\n  Q+ e Q- constantes e Q+ < Q- (portanto Q(x) constante e menor que zero). Pressione Enter para continuar..."
         )
+        print(" Parametros: Q+ - Q- = -2")
 
         n = 15
         f = lambda x, y: -2  # função f(x)
@@ -192,10 +206,16 @@ def main():
         L = 1
         h = L / (n + 1)
         xi = [i * h for i in range(n + 2)]
+        u_barra_lista = []
         for x in xi:
+            u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
+        plt.plot(xi, u_barra_lista)
+        plt.show()
+
         input("\n\n  Q+ e Q- constantes e Q+ <<< Q-. Pressione Enter para continuar...")
+        print(" Parametros: Q+ - Q- = -20")
 
         n = 15
         f = lambda x, y: -20  # função f(x)
@@ -206,8 +226,13 @@ def main():
         L = 1
         h = L / (n + 1)
         xi = [i * h for i in range(n + 2)]
+        u_barra_lista = []
         for x in xi:
+            u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+
+        plt.plot(xi, u_barra_lista)
+        plt.show()
 
         input(
             "\n\n  Q+ modelado por Q+(x) = Q+0 * e**-(x-L/2)**2/σ**2 e Q- constante. Pressione Enter para continuar..."
@@ -227,8 +252,13 @@ def main():
         L = 1
         h = L / (n + 1)
         xi = [i * h for i in range(n + 2)]
+        u_barra_lista = []
         for x in xi:
+            u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+
+        plt.plot(xi, u_barra_lista)
+        plt.show()
 
         input(
             "\n\n  Q+ constance e Q- modelado por Q-(x) = Q-0 * (e**(-x**2/θ**2) + e**(-(x-L)**2/θ/**2)). Pressione Enter para continuar..."
@@ -243,8 +273,13 @@ def main():
         L = 1
         h = L / (n + 1)
         xi = [i * h for i in range(n + 2)]
+        u_barra_lista = []
         for x in xi:
+            u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+
+        plt.plot(xi, u_barra_lista)
+        plt.show()
 
         input(
             "\n\n  Q+ modelado por Q+(x) = Q+0 * e**-(x-L/2)**2/σ**2 e Q- modelado por Q-(x) = Q-0 * (e**(-x**2/θ**2) + e**(-(x-L)**2/θ/**2)). Pressione Enter para continuar..."
@@ -259,8 +294,13 @@ def main():
         L = 1
         h = L / (n + 1)
         xi = [i * h for i in range(n + 2)]
+        u_barra_lista = []
         for x in xi:
+            u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+
+        plt.plot(xi, u_barra_lista)
+        plt.show()
 
 
 if __name__ == "__main__":
