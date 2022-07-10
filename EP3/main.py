@@ -83,7 +83,7 @@ def main():
             )
 
         input("\nTodos os erros calculados. Pressione Enter para continuar...")
-        for n in [7, 15, 31, 63]:
+        for n in [2, 3, 7, 15, 31, 63]:
 
             print(f"\nn={n} -->")
 
@@ -93,11 +93,17 @@ def main():
             L = 1
             h = L / (n + 1)
             xi = [i * h for i in range(n + 2)]
+            u_barra_lista = []
             for x in xi:
+                u_barra_lista.append(u_barra(x, alphas, xi, h))
                 print(
-                    f"xi = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f} ; u_exato = {u_exato(x):.22f}; erro = {u_barra(x,alphas,xi,h)-u_exato(x):.22f}"
+                    f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f} ; u_exato = {u_exato(x):.22f}; erro = {u_barra(x,alphas,xi,h)-u_exato(x):.22f}"
                 )
+            u_exato_lista = [u_exato(x) for x in np.linspace(0, 1)]
 
+            plt.plot(xi, u_barra_lista, label="u_barra")
+            plt.plot(np.linspace(0, 1), u_exato_lista, label="u_exato")
+            plt.show()
     elif modo == 2:
         print(
             "\nModo 1 - Validação no intervalo [0,1] com k(x)=e**x, q(x)=0, f(x)=e**(x)+1"
@@ -139,7 +145,7 @@ def main():
             xi = [i * h for i in range(n + 2)]
             for x in xi:
                 print(
-                    f"xi = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f} ; u_exato = {u_exato(x):.22f}; erro = {u_barra(x,alphas,xi,h)-u_exato(x):.22f}"
+                    f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f} ; u_exato = {u_exato(x):.22f}; erro = {u_barra(x,alphas,xi,h)-u_exato(x):.22f}"
                 )
 
     elif modo == 3:
@@ -167,9 +173,11 @@ def main():
         u_barra_lista = []
         for x in xi:
             u_barra_lista.append(u_barra(x, alphas, xi, h))
-            print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+            print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista)
+        plt.plot(xi, u_barra_lista, label="$T(x)$")
+        plt.legend()
+        plt.grid()
         plt.show()
 
         input("\n\n  Q+ e Q- constantes e Q+ >>> Q-. Pressione Enter para continuar...")
@@ -187,9 +195,11 @@ def main():
         u_barra_lista = []
         for x in xi:
             u_barra_lista.append(u_barra(x, alphas, xi, h))
-            print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+            print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista)
+        plt.plot(xi, u_barra_lista, label="$T(x)$")
+        plt.legend()
+        plt.grid()
         plt.show()
 
         input(
@@ -209,9 +219,11 @@ def main():
         u_barra_lista = []
         for x in xi:
             u_barra_lista.append(u_barra(x, alphas, xi, h))
-            print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+            print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista)
+        plt.plot(xi, u_barra_lista, label="$T(x)$")
+        plt.legend()
+        plt.grid()
         plt.show()
 
         input("\n\n  Q+ e Q- constantes e Q+ <<< Q-. Pressione Enter para continuar...")
@@ -229,9 +241,11 @@ def main():
         u_barra_lista = []
         for x in xi:
             u_barra_lista.append(u_barra(x, alphas, xi, h))
-            print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+            print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista)
+        plt.plot(xi, u_barra_lista, label="$T(x)$")
+        plt.legend()
+        plt.grid()
         plt.show()
 
         input(
@@ -255,9 +269,11 @@ def main():
         u_barra_lista = []
         for x in xi:
             u_barra_lista.append(u_barra(x, alphas, xi, h))
-            print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+            print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista)
+        plt.plot(xi, u_barra_lista, label="$T(x)$")
+        plt.legend()
+        plt.grid()
         plt.show()
 
         input(
@@ -276,9 +292,11 @@ def main():
         u_barra_lista = []
         for x in xi:
             u_barra_lista.append(u_barra(x, alphas, xi, h))
-            print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+            print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista)
+        plt.plot(xi, u_barra_lista, label="$T(x)$")
+        plt.legend()
+        plt.grid()
         plt.show()
 
         input(
@@ -297,9 +315,11 @@ def main():
         u_barra_lista = []
         for x in xi:
             u_barra_lista.append(u_barra(x, alphas, xi, h))
-            print(f"x = {x:.3f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
+            print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista)
+        plt.plot(xi, u_barra_lista, label="$T(x)$")
+        plt.legend()
+        plt.grid()
         plt.show()
 
 
