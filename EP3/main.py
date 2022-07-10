@@ -83,7 +83,7 @@ def main():
             )
 
         input("\nTodos os erros calculados. Pressione Enter para continuar...")
-        for n in [2, 3, 7, 15, 31, 63]:
+        for n in [7, 15, 31, 63]:
 
             print(f"\nn={n} -->")
 
@@ -106,7 +106,7 @@ def main():
             plt.show()
     elif modo == 2:
         print(
-            "\nModo 1 - Validação no intervalo [0,1] com k(x)=e**x, q(x)=0, f(x)=e**(x)+1"
+            "\nModo 2 - Validação no intervalo [0,1] com k(x)=e**x, q(x)=0, f(x)=e**(x)+1"
         )
         print("\nSolução exata u(x) = (x-1)*(e**(-x) - 1)")
         print("\nParametros: \nk(x)=1, \nq(x)=0, \nf(x)=12x(1-x)-2")
