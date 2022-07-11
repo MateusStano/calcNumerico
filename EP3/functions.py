@@ -237,6 +237,17 @@ def u_barra(x, alphas, xi, h):
     return u_barra
 
 
+def u_barra_nao_homogenea(x, a, b, alphas, xi, h, L=1):
+    """
+    x: valor de x
+    alphas: vetor de alphas
+    xi: vetor de pontos
+    h: tamanho do intervalo
+
+    """
+    return u_barra(x, alphas, xi, h) + (a + (b - a) * x) / L
+
+
 def maior_erro(n, u_exato, alphas, L=1):
     """
     n: número de pontos
