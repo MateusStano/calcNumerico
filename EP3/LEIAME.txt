@@ -1,0 +1,18 @@
+# Exercício Programa 3 - Modelagem de um Sistema de Resfriamento de Chips
+
+## Versões
+Programado com python 3.10
+
+Requisitos 
+Python 3 e NumPy
+
+## Instruções de execucação
+Executar arquivo main.py e escolher um dos 4 modos
+
+Modo 1 - Validação no intervalo [0,1] com k(x)=1, q(x)=0, f(x)=12x(1-x)-2
+
+Modo 2 - Validação no intervalo [0,1] com k(x)=e**x, q(x)=0, f(x)=e**x+1
+
+Modo 3 - Equilíbrio com forçantes de calor
+
+Modo 4 - Equilibrio com variacao de material
