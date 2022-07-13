@@ -240,6 +240,8 @@ def u_barra(x, alphas, xi, h):
 def u_barra_nao_homogenea(x, a, b, alphas, xi, h, L=1):
     """
     x: valor de x
+    a: valor de u(0)
+    b: valor de u(L)
     alphas: vetor de alphas
     xi: vetor de pontos
     h: tamanho do intervalo

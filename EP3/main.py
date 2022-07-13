@@ -105,6 +105,8 @@ def main():
             plt.plot(np.linspace(0, 1), u_exato_lista, label="$\overline{u}_n$")
             plt.legend()
             plt.grid()
+            plt.ylabel("$u(x)$")
+            plt.xlabel("$x$")
             plt.show()
 
         input("\n\nAvaliando o erro nos pontos p=(x[i-1]-xi)/2 para diferentes n's:")
@@ -181,6 +183,8 @@ def main():
             plt.plot(np.linspace(0, 1), u_exato_lista, label="$\overline{u}_n$")
             plt.legend()
             plt.grid()
+            plt.ylabel("$u(x)$")
+            plt.xlabel("$x$")
             plt.show()
 
     elif modo == 3:
@@ -194,10 +198,10 @@ def main():
         print(
             "\n  Q+ e Q- constantes e Q+ > Q- (portanto Q(x) constante e maior que zero)"
         )
-        input(" Parametros: Q+ - Q- = 2")
+        input(" Parametros: Q+ - Q- = 2000")
 
         n = 63
-        f = lambda x, y: 2  # função f(x)
+        f = lambda x, y: 2000  # função f(x)
         k = lambda x, y: 3.6  # função k(x)
         q = lambda x, y: 0  # função q(x)
         alphas = sol_sistema_linear_tridiagonal(f, k, q, n, n10)  # solução do sistema
@@ -213,13 +217,15 @@ def main():
         plt.plot(xi, u_barra_lista, label="$T(x)$")
         plt.legend()
         plt.grid()
+        plt.ylabel("$T(x)$")
+        plt.xlabel("$x$")
         plt.show()
 
         print("\n\n  Q+ e Q- constantes e Q+ >>> Q-")
-        input(" Parametros: Q+ - Q- = 20")
+        input(" Parametros: Q+ - Q- = 20000")
 
         n = 63
-        f = lambda x, y: 20  # função f(x)
+        f = lambda x, y: 20000  # função f(x)
         k = lambda x, y: 3.6  # função k(x)
         q = lambda x, y: 0  # função q(x)
         alphas = sol_sistema_linear_tridiagonal(f, k, q, n, n10)  # solução do sistema
@@ -235,15 +241,17 @@ def main():
         plt.plot(xi, u_barra_lista, label="$T(x)$")
         plt.legend()
         plt.grid()
+        plt.ylabel("$T(x)$")
+        plt.xlabel("$x$")
         plt.show()
 
         print(
             "\n\n  Q+ e Q- constantes e Q+ < Q- (portanto Q(x) constante e menor que zero)"
         )
-        input(" Parametros: Q+ - Q- = -2")
+        input(" Parametros: Q+ - Q- = -2000")
 
         n = 63
-        f = lambda x, y: -2  # função f(x)
+        f = lambda x, y: -2000  # função f(x)
         k = lambda x, y: 3.6  # função k(x)
         q = lambda x, y: 0  # função q(x)
         alphas = sol_sistema_linear_tridiagonal(f, k, q, n, n10)  # solução do sistema
@@ -259,13 +267,15 @@ def main():
         plt.plot(xi, u_barra_lista, label="$T(x)$")
         plt.legend()
         plt.grid()
+        plt.ylabel("$T(x)$")
+        plt.xlabel("$x$")
         plt.show()
 
         print("\n\n  Q+ e Q- constantes e Q+ <<< Q-")
-        input(" Parametros: Q+ - Q- = -20")
+        input(" Parametros: Q+ - Q- = -20000")
 
         n = 63
-        f = lambda x, y: -20  # função f(x)
+        f = lambda x, y: -20000  # função f(x)
         k = lambda x, y: 3.6  # função k(x)
         q = lambda x, y: 0  # função q(x)
         alphas = sol_sistema_linear_tridiagonal(f, k, q, n, n10)  # solução do sistema
@@ -281,14 +291,16 @@ def main():
         plt.plot(xi, u_barra_lista, label="$T(x)$")
         plt.legend()
         plt.grid()
+        plt.ylabel("$T(x)$")
+        plt.xlabel("$x$")
         plt.show()
 
         print("\n\n  Q+ modelado por Q+(x) = Q+0 * e**-(x-L/2)**2/sigma**2 e Q-=0.")
         print("  Variando sigma")
-        input("\n  Parametros: Q+0 = 2, L=1, sigma = variando, Q-0 = 2")
+        input("\n  Parametros: Q+0 = 2000, L=1, sigma = variando, Q-0 = 0")
         n = 63
-        Q0 = 2
-        sigmas = [0.001, 0.01, 0.1]
+        Q0 = 2000
+        sigmas = [0.05, 0.1, 0.25, 0.5, 1, 5]
         L = 1
         Q_0 = 0
         for sigma in sigmas:
@@ -311,19 +323,21 @@ def main():
             plt.plot(xi, u_barra_lista, label="$\sigma=$" + str(sigma))
         plt.legend()
         plt.grid()
+        plt.ylabel("$T(x)$")
+        plt.xlabel("$x$")
         plt.show()
 
         print(
             "\n\n  Q+=0 e Q- modelado por Q-(x) = Q-0 * (e**(-x**2/θ**2) + e**(-(x-L)**2/θ**2))"
         )
         print("Variando theta")
-        input("\n  Parametros: Q+0 = 2, L=1, theta = variando, Q-0 = 2")
+        input("\n  Parametros: Q+0 = 0, L=1, theta = variando, Q-0 = 2000")
 
         n = 63
         Q0 = 0
-        thetas = [0.1, 0.5, 1, 2]
+        thetas = [0.05, 0.1, 0.25, 0.5, 1, 5]
         L = 1
-        Q_0 = 2
+        Q_0 = 2000
         for theta in thetas:
             f = lambda x, y: Q0 - (
                 Q_0
@@ -349,6 +363,8 @@ def main():
             plt.plot(xi, u_barra_lista, label="$\u03B8=$" + str(theta))
         plt.legend()
         plt.grid()
+        plt.ylabel("$T(x)$")
+        plt.xlabel("$x$")
         plt.show()
 
         print(
@@ -356,16 +372,16 @@ def main():
         )
         print("Variando sigma e theta.")
         input(
-            "\n  Parametros: Q+0 = 2, L=1, sigma = variando, theta = variando, Q-0 = 2"
+            "\n  Parametros: Q+0 = 2000, L=1, sigma = variando, theta = variando, Q-0 = 1000"
         )
 
         n = 63
         L = 1
-        Q0 = 2
-        thetas = [0.1, 6]
-        sigmas = [0.1, 6]
+        Q0 = 2000
+        thetas = [0.1, 5]
+        sigmas = [0.1, 5]
         L = 1
-        Q_0 = 2
+        Q_0 = 1000
         for theta in thetas:
             for sigma in sigmas:
                 f = lambda x, y: Q0 * np.e ** (-((x - L / 2) ** 2) / sigma**2) - (
@@ -395,6 +411,8 @@ def main():
                 )
         plt.legend()
         plt.grid()
+        plt.ylabel("$T(x)$")
+        plt.xlabel("$x$")
         plt.show()
 
         print(
@@ -446,6 +464,8 @@ def main():
                 )
             plt.legend()
             plt.grid()
+            plt.ylabel("$T(x)$")
+            plt.xlabel("$x$")
             plt.show()
 
     elif modo == 4:
@@ -455,24 +475,23 @@ def main():
 
         n = 63
         ks = [0.5, 1, 3.6, 36]
-        Q0 = 2
-        theta = 1
-        sigma = 1
+        Q0 = 2000
+        theta = 0.1
+        sigma = 0.1
         L = 1
-        Q_0 = 2
+        Q_0 = 1000
         f = lambda x, y: Q0 * np.e ** (-((x - L / 2) ** 2) / sigma**2) - (
             Q_0
             * (
                 np.e ** (-(x**2) / theta**2)
                 + np.e ** (-((x - L) ** 2) / theta**2)
             )
-        )  # função f(x)  # função f(x)
+        )  # função f(x)
+        q = lambda x, y: 0  # função q(x)
         for k in ks:
-            k = lambda x, y: k  # função k(x)
-
-            q = lambda x, y: 0  # função q(x)
+            kx = lambda x, y: k  # função k(x)
             alphas = sol_sistema_linear_tridiagonal(
-                f, k, q, n, n10
+                f, kx, q, n, n10
             )  # solução do sistema
 
             L = 1
@@ -486,25 +505,26 @@ def main():
             plt.plot(xi, u_barra_lista, label="$k= $" + str(k))
         plt.grid()
         plt.legend()
+        plt.ylabel("$T(x)$")
+        plt.xlabel("$x$")
         plt.show()
 
         print("\nAnalisando para k(x)=ks se L/2-d<x<l/2+d e k(x)=ka caso contrario")
         input("\nParametros: \nks=3.6, ka=60, L=1, d=L/10, q(x)=0, \nf(x)=Q(x)")
 
         n = 63
-        Q0 = 2
-        theta = 1
-        sigma = 1
+        Q0 = 2000
+        theta = 0.1
+        sigma = 0.1
         L = 1
-
-        Q_0 = 2
+        Q_0 = 1000
         f = lambda x, y: Q0 * np.e ** (-((x - L / 2) ** 2) / sigma**2) - (
             Q_0
             * (
                 np.e ** (-(x**2) / theta**2)
                 + np.e ** (-((x - L) ** 2) / theta**2)
             )
-        )  # função f(x)  # função f(x)
+        )  # função f(x)
 
         def k(x, y):  # função k(x)
             L = 1
@@ -527,18 +547,17 @@ def main():
             u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista, label="$T(x)$, $d=L/10$, $k_a=60$")
+        plt.plot(xi, u_barra_lista, label="$d=L/10$, $k_a=60$")
 
         print("\nParametros: \nks=3.6, ka=60, L=1, d=L/3, q(x)=0, \nf(x)=Q(x)")
         input("\nk(x)=ks se L/2-d<x<l/2+d e k(x)=ka caso contrario")
 
         n = 63
-        Q0 = 2
-        theta = 1
-        sigma = 1
+        Q0 = 2000
+        theta = 0.1
+        sigma = 0.1
         L = 1
-
-        Q_0 = 2
+        Q_0 = 1000
         f = lambda x, y: Q0 * np.e ** (-((x - L / 2) ** 2) / sigma**2) - (
             Q_0
             * (
@@ -568,20 +587,21 @@ def main():
             u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista, label="$T(x)$, $d=L/3$, $k_a=60$")
+        plt.plot(xi, u_barra_lista, label="$d=L/3$, $k_a=60$")
         plt.legend()
         plt.grid()
+        plt.ylabel("$T(x)$")
+        plt.xlabel("$x$")
         plt.show()
 
         input("\nParametros: \nks=3.6, ka=429, L=1, d=L/10, q(x)=0, \nf(x)=Q(x)")
 
         n = 63
-        Q0 = 2
-        theta = 1
-        sigma = 1
+        Q0 = 2000
+        theta = 0.1
+        sigma = 0.1
         L = 1
-
-        Q_0 = 2
+        Q_0 = 1000
         f = lambda x, y: Q0 * np.e ** (-((x - L / 2) ** 2) / sigma**2) - (
             Q_0
             * (
@@ -611,18 +631,17 @@ def main():
             u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista, label="$T(x)$, $d=L/10$, $k_a=429$")
+        plt.plot(xi, u_barra_lista, label="$d=L/10$, $k_a=429$")
 
         print("\nParametros: \nks=3.6, ka=429, L=1, d=L/3, q(x)=0, \nf(x)=Q(x)")
         input("\nk(x)=ks se L/2-d<x<l/2+d e k(x)=ka caso contrario")
 
         n = 63
-        Q0 = 2
-        theta = 1
-        sigma = 1
+        Q0 = 2000
+        theta = 0.1
+        sigma = 0.1
         L = 1
-
-        Q_0 = 2
+        Q_0 = 1000
         f = lambda x, y: Q0 * np.e ** (-((x - L / 2) ** 2) / sigma**2) - (
             Q_0
             * (
@@ -652,20 +671,21 @@ def main():
             u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista, label="$T(x)$, $d=L/3$, $k_a=429$")
+        plt.plot(xi, u_barra_lista, label="$d=L/3$, $k_a=429$")
         plt.legend()
         plt.grid()
+        plt.ylabel("$T(x)$")
+        plt.xlabel("$x$")
         plt.show()
 
         input("\nParametros: \nks=3.6, ka=0.03, L=1, d=L/10, q(x)=0, \nf(x)=Q(x)")
 
         n = 63
-        Q0 = 2
-        theta = 1
-        sigma = 1
+        Q0 = 2000
+        theta = 0.1
+        sigma = 0.1
         L = 1
-
-        Q_0 = 2
+        Q_0 = 1000
         f = lambda x, y: Q0 * np.e ** (-((x - L / 2) ** 2) / sigma**2) - (
             Q_0
             * (
@@ -695,18 +715,17 @@ def main():
             u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista, label="$T(x)$, $d=L/10$, $k_a=0.03$")
+        plt.plot(xi, u_barra_lista, label="$d=L/10$, $k_a=0.03$")
 
         print("\nParametros: \nks=3.6, ka=0.03, L=1, d=L/3, q(x)=0, \nf(x)=Q(x)")
         input("\nk(x)=ks se L/2-d<x<l/2+d e k(x)=ka caso contrario")
 
         n = 63
-        Q0 = 2
-        theta = 1
-        sigma = 1
+        Q0 = 2000
+        theta = 0.1
+        sigma = 0.1
         L = 1
-
-        Q_0 = 2
+        Q_0 = 1000
         f = lambda x, y: Q0 * np.e ** (-((x - L / 2) ** 2) / sigma**2) - (
             Q_0
             * (
@@ -736,9 +755,11 @@ def main():
             u_barra_lista.append(u_barra(x, alphas, xi, h))
             print(f"x = {x:.4f} ; u_barra = {u_barra(x,alphas,xi,h):.22f}")
 
-        plt.plot(xi, u_barra_lista, label="$T(x)$, $d=L/3$, $k_a=0.03$")
+        plt.plot(xi, u_barra_lista, label="$d=L/3$, $k_a=0.03$")
         plt.legend()
         plt.grid()
+        plt.ylabel("$T(x)$")
+        plt.xlabel("$x$")
         plt.show()
 
 
